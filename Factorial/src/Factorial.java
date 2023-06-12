@@ -6,6 +6,7 @@ public class Factorial {
         System.out.println("Please, give a number");
         long number = scanner.nextLong();
         long countNumber = 1;
+        long countNumber2 = number;
         long sumNumber = number;
 
         //Eloltesztelo
@@ -41,15 +42,15 @@ public class Factorial {
 
         //for
 
-        /*or (int i = 1; number >= i; i++) {
-            countNumber *= number;
-            number -= 1;
+        for (int i = 1; number >= i; i++) {
+            countNumber *= countNumber2;
+            countNumber2 -= 1;
             System.out.println(countNumber);
             if (1 > number) {
                 break;
             }
         }
-        System.out.println("the factorial of " + sumNumber + " is " + countNumber);*/
+        System.out.println("the factorial of " + sumNumber + " is " + countNumber);
 
     }
 }
