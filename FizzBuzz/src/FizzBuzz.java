@@ -13,26 +13,27 @@ public class FizzBuzz {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please give a number");
+        while (!scanner.hasNextInt()) {
+            scanner.next();
+            System.err.println("The number is smaller than 1, or its not a number");
+        }
         int number = scanner.nextInt();
-        if (number < 1) {
-            System.err.println("The number is smaller than 1");
-        } else {
+        while (number < 0) {
+            scanner.nextInt();
+            System.err.println("The number is smaller than 1, or its not a number");
+        }
             for (int i = 1; i <= number; ++i) {
                 if (i % 5 == 0 && i % 3 == 0) {
                     System.out.println("FizzBuzz");
-
                 } else if (i % 3 == 0) {
                     System.out.println("Fizz");
-
                 } else if (i % 5 == 0) {
                     System.out.println("Buzz");
 
                 } else {
-
                     System.out.println(i);
                 }
             }
-
         }
     }
-}
+
