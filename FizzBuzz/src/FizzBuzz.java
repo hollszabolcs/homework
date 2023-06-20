@@ -18,22 +18,22 @@ public class FizzBuzz {
             System.err.println("The number is smaller than 1, or its not a number");
         }
         int number = scanner.nextInt();
-        while (number < 0) {
-            scanner.nextInt();
+        while (number < 1) {
             System.err.println("The number is smaller than 1, or its not a number");
+            int numberCheck = scanner.nextInt();
+            number = numberCheck;
         }
-            for (int i = 1; i <= number; ++i) {
-                if (i % 5 == 0 && i % 3 == 0) {
-                    System.out.println("FizzBuzz");
-                } else if (i % 3 == 0) {
-                    System.out.println("Fizz");
-                } else if (i % 5 == 0) {
-                    System.out.println("Buzz");
-
-                } else {
-                    System.out.println(i);
-                }
+        for (int i = 1; i <= number; ++i) {
+            if (i % 5 == 0 && i % 3 == 0) {
+                System.out.println("FizzBuzz");
+            } else if (i % 3 == 0) {
+                System.out.println("Fizz");
+            } else if (i % 5 == 0) {
+                System.out.println("Buzz");
+            } else {
+                System.out.println(i);
             }
         }
     }
+}
 
