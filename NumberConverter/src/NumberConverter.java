@@ -15,93 +15,95 @@ public class NumberConverter {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please give a number");
         long number = scanner.nextLong();
-        String numbersInEnglish = "";
+        String numberInEnglish = "";
         long errorNumber = 1000000000000000L;
         long trillionNumber = 100000000000000L;
         long billionNumber = 100000000000L;
         long millionNumber = 1000000L;
         int thousandNumber = 1000;
-        int hundredNUmber = 100;
-        if (number > errorNumber || number < 0) {
+        int hundredNumber = 100;
+        int hundreds = 0;
+        if (number > errorNumber || number <= 0) {
             System.err.println("Fatal error! The number is too big or too small");
         } else {
             if (number >= trillionNumber) {                                   //TRILlION
                 long numberCut = number / 1000000000000L;
                 if (numberCut > 100) {
-                    int Hundreds = (int) numberCut / 100;
-                    numbersInEnglish += ONE_TO_NINETEEN[Hundreds] + " " + HUNDRED;
-                    numberCut -= Hundreds * 100;
+                    hundreds = (int) numberCut / 100;
+                    numberInEnglish += ONE_TO_NINETEEN[hundreds] + " " + TRILLION;
+                    numberCut -= hundreds * 100;
                 }
                 if (numberCut >= 20) {
-                    numbersInEnglish += " " + TWENTY_TO_NINETY[(int) numberCut / 10];
+                    numberInEnglish += " " + TWENTY_TO_NINETY[(int) numberCut / 10];
                     numberCut %= 10;
-                    numbersInEnglish += HYPHEN + ONE_TO_NINETEEN[(int) numberCut] + TRILLION;
+                    numberInEnglish += HYPHEN + ONE_TO_NINETEEN[(int) numberCut] + HUNDRED;
                 } else {
-                    numbersInEnglish += " " + ONE_TO_NINETEEN[(int) numberCut] + BILLION;
+                    numberInEnglish += "and " + ONE_TO_NINETEEN[(int) numberCut] + TRILLION;
                 }
             }
             if (number % 1000000000000L >= billionNumber) {//BILlION
                 long numberCut = (number % 1000000000000L) / 1000000000L;
                 if (numberCut > 100) {
-                    int Hundreds = (int) numberCut / 100;
-                    numbersInEnglish += ONE_TO_NINETEEN[Hundreds] +  HUNDRED;
-                    numberCut -= Hundreds * 100;
+                    hundreds = (int) numberCut / 100;
+                    numberInEnglish += ONE_TO_NINETEEN[hundreds] + HUNDRED;
+                    numberCut -= hundreds * 100;
                 }
                 if (numberCut >= 20) {
-                    numbersInEnglish += " " + TWENTY_TO_NINETY[(int) numberCut / 10];
+                    numberInEnglish += " " + TWENTY_TO_NINETY[(int) numberCut / 10];
                     numberCut %= 10;
-                    numbersInEnglish += HYPHEN + ONE_TO_NINETEEN[(int) numberCut] + " billion,";
+                    numberInEnglish += HYPHEN + ONE_TO_NINETEEN[(int) numberCut] + " billion,";
                 } else {
-                    numbersInEnglish += " " + ONE_TO_NINETEEN[(int) numberCut] + " billion,";
+                    numberInEnglish += " " + ONE_TO_NINETEEN[(int) numberCut] + " billion,";
                 }
             }
             if (number % 1000000000L >= millionNumber) {                                   //MILlION
                 long numberCut = (number % 1000000000L) / 1000000;
                 if (numberCut > 100) {
-                    int millionHundreds = (int) numberCut / 100;
-                    numbersInEnglish += ONE_TO_NINETEEN[millionHundreds] + HUNDRED;
-                    numberCut -= millionHundreds * 100;
+                    hundreds = (int) numberCut / 100;
+                    numberInEnglish += ONE_TO_NINETEEN[hundreds] + HUNDRED;
+                    numberCut -= hundreds * 100;
                 }
                 if (numberCut >= 20) {
-                    numbersInEnglish += " " + TWENTY_TO_NINETY[(int) numberCut / 10];
+                    numberInEnglish += " " + TWENTY_TO_NINETY[(int) numberCut / 10];
                     numberCut %= 10;
-                    numbersInEnglish += HYPHEN + ONE_TO_NINETEEN[(int) numberCut] + MILLION;
+                    numberInEnglish += HYPHEN + ONE_TO_NINETEEN[(int) numberCut] + MILLION;
                 } else {
-                    numbersInEnglish += " " + ONE_TO_NINETEEN[(int) numberCut] + MILLION;
+                    numberInEnglish += " " + ONE_TO_NINETEEN[(int) numberCut] + MILLION;
                 }
+                number = number % 1000000;
             }
-            if (number % 1000000000L >= thousandNumber) {//THOUSAND
-                long numberCut = (number % 1000000L) / 10;
-                if (numberCut > 100) {
-                    int Hundreds = (int) numberCut / 100;
-                    numbersInEnglish += ONE_TO_NINETEEN[Hundreds] + THOUSAND;
-                    numberCut -= Hundreds * 100;
+            if (number >= thousandNumber) {//THOUSAND
+                if (number > 99999) {
+                    int thousands = (int) number / 100000;
+                    numberInEnglish += ONE_TO_NINETEEN[thousands] + HUNDRED;
                 }
-                if (numberCut >= 20) {
-                    numbersInEnglish += " " + TWENTY_TO_NINETY[(int) numberCut /10];
-                    numberCut %= 10;
-                    numbersInEnglish += HYPHEN + ONE_TO_NINETEEN[(int) numberCut];
+                if (number > 1000) {
+                    int thousands = (int) (number % 100000) / 10000;
+                    numberInEnglish += TWENTY_TO_NINETY[thousands];
+                }
+                if (number > 100) {
+                    int thousands = (int) (number % 10000) / 1000;
+                    numberInEnglish += ONE_TO_NINETEEN[thousands] + " " + THOUSAND;
                 } else {
-                    numbersInEnglish += " " + ONE_TO_NINETEEN[(int) numberCut];
+                    numberInEnglish += " " + THOUSAND;
                 }
+                number = (number % 10000);
             }
-            if (number % 1000 >= hundredNUmber) {                                   //HUNDRED
-                long numberCut = (number % 1000);
-                if (numberCut > 100) {
-                    int millionHundreds = (int) numberCut / 100;
-                    numbersInEnglish += ONE_TO_NINETEEN[millionHundreds] + HUNDRED;
-                    numberCut -= millionHundreds * 100;
-                }
-                if (numberCut >= 20) {
-                    numbersInEnglish += " " + TWENTY_TO_NINETY[(int) numberCut / 10];
-                    numberCut %= 10;
-                    numbersInEnglish += HYPHEN + ONE_TO_NINETEEN[(int) numberCut];
-                } else {
-                    numbersInEnglish += " " + ONE_TO_NINETEEN[(int) numberCut];
-                }
+            //HUNDRED
+            if (number > 100) {
+                hundreds = (int) (number % 1000) / 100;
+                numberInEnglish += ONE_TO_NINETEEN[hundreds] + HUNDRED;
+                number = number % 100;
             }
-            System.out.println(numbersInEnglish);
-            scanner.close();
+            if (number >= 20) {
+                numberInEnglish += " " + TWENTY_TO_NINETY[(int) number / 10];
+                number %= 10;
+            }
+            if (number <= 19) {
+                numberInEnglish += HYPHEN + ONE_TO_NINETEEN[(int) number];
+            }
         }
+        System.out.println(numberInEnglish);
+        scanner.close();
     }
 }
