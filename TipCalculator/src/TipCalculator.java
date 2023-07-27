@@ -23,8 +23,8 @@ public class TipCalculator {
 
     public static int getSpendings(int[] calculate, Scanner scanner) {
         int sumTip = 0;
-        for (int numb : calculate) {
-            sumTip += calculate[numb];
+        for (int spendinds : calculate) {
+            sumTip += spendinds;
         }
         return sumTip;
     }
@@ -35,15 +35,12 @@ public class TipCalculator {
         return tipValue;
     }
 
-    public static int calcPropotion(int sumTip, int tipValue) {
-        int totalCost = 0;
-        if (tipValue <= 10) {
-            totalCost = -1;
-        } else if (tipValue >= 80) {
-            totalCost = -1;
-        } else {
-            totalCost = (int) (sumTip * ((double) tipValue / 100));
+    public static int calcPropotion(int spendings, int tipValue) {
+        if (tipValue < 10 || tipValue > 80) {
+            return -1;
         }
+        int totalCost = 0;
+        totalCost = (int) (spendings * ((double) tipValue / 100));
         return totalCost;
     }
 }
