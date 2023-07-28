@@ -21,10 +21,10 @@ public class TipCalculator {
         return tips;
     }
 
-    public static int getSpendings(int[] calculate, Scanner scanner) {
+    public static int getSpendings(int[] spendings, Scanner scanner) {
         int sumTip = 0;
-        for (int spendinds : calculate) {
-            sumTip += spendinds;
+        for (int spending : spendings) {
+            sumTip += spending;
         }
         return sumTip;
     }
