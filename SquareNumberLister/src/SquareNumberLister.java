@@ -5,7 +5,7 @@ public class SquareNumberLister {
         System.out.println("Please give me a number");
         Scanner scanner = new Scanner(System.in);
         int number = getNumberFromUser(scanner);
-        calcquareNumbers(number);
+        calculateNumbers(number);
     }
 
     static int getNumberFromUser(Scanner scanner) {
@@ -29,7 +29,7 @@ public class SquareNumberLister {
         return number >= 2 && number <= 2_000_000_000;
     }
 
-    static void calcquareNumbers(int number) {
+    static void calculateNumbers(int number) {
         for (int i = 1; i <= number; i++) {
             int squareNumb = (int) Math.pow(i, 2);
             if (squareNumb > number) {
