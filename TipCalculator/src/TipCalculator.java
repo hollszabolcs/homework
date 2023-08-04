@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class TipCalculator {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int[] tips = getCost(scanner);
+        int[] tips = getCosts(scanner);
         int calcTip = getSpendings(tips, scanner);
         int getProp = getPropotion(scanner);
         int calcProp = calcPropotion(calcTip, getProp);
@@ -11,7 +11,7 @@ public class TipCalculator {
         System.out.println("total tip is " + calcProp + " Ft");
     }
 
-    public static int[] getCost(Scanner scanner) {
+    public static int[] getCosts(Scanner scanner) {
         int k = 1;
         int[] tips = new int[5];
         for (int numb : tips) {
