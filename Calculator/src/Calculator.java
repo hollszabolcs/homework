@@ -16,7 +16,7 @@ public class Calculator {
         int number = getNumber(scanner);
         int[] operands = new int[2];
         int operand = 0;
-        if (number <= 5 || number == 7) {
+        if (number <= 7) {
             operands = getOperands(scanner);
         } else {
             operand = getOneoperand(scanner);
@@ -36,10 +36,10 @@ public class Calculator {
                 getDivision(operands);
                 break;
             case 5:
-                getModulardiv(operands);
+                getModularDiv(operands);
                 break;
             case 6:
-                getPower(operand);
+                getPower(operands);
                 break;
             case 7:
                 getPercentage(operands);
@@ -48,7 +48,7 @@ public class Calculator {
                 getFactorial(operand);
                 break;
             case 9:
-                getSquareroot(operand);
+                getSquareRoot(operand);
                 break;
             default:
 
@@ -61,14 +61,13 @@ public class Calculator {
 
 
     private static int[] getOperands(Scanner scanner) {
-        int i = 0;
-        int[] operators = new int[2];
+        int[] operands = new int[2];
         System.out.println("Please type two numbers");
-        for (int ops : operators) {
-            operators[i] = scanner.nextInt();
+        for (int i = 0; i < operands.length; ) {
+            operands[i] = scanner.nextInt();
             i++;
         }
-        return operators;
+        return operands;
     }
 
     private static int getOneoperand(Scanner scanner) {
@@ -78,7 +77,7 @@ public class Calculator {
         return operator;
     }
 
-     static int getSum(int[] numbers) {
+    static int getSum(int[] numbers) {
         int result = 0;
         for (int operators : numbers) {
             result += operators;
@@ -87,41 +86,41 @@ public class Calculator {
         return result;
     }
 
-     static int getDif(int[] numbers) {
+    static int getDif(int[] numbers) {
         int number1 = 0;
         int number2 = 0;
         int i = 0;
-         for (int opeartos : numbers) {
-             number1 = numbers[i];
-             i++;
-             number2 = numbers[i];
-             break;
-         }
+        for (int operators : numbers) {
+            number1 = numbers[i];
+            i++;
+            number2 = numbers[i];
+            break;
+        }
 
-         int result =number1- number2;
-         System.out.println(result);
-        return  result;
+        int result = number1 - number2;
+        System.out.println(result);
+        return result;
     }
 
-     static int getMulti(int[] numbers) {
-        int number1 = 0;
-        int number2 = 0;
+    static double getMulti(int[] numbers) {
+        double number1 = 0;
+        double number2 = 0;
         int i = 0;
-         for (int opeartos : numbers) {
-             number1 = numbers[i];
-             i++;
-             number2 = numbers[i];
-             break;
-         }
-         int result = number1 *  number2;
-         System.out.println(result);
-         return result;
-     }
+        for (int operators : numbers) {
+            number1 = numbers[i];
+            i++;
+            number2 = numbers[i];
+            break;
+        }
+        double result = number1 * number2;
+        System.out.println(result);
+        return result;
+    }
 
-     static double getDivision(int[] numbers) {
+    static double getDivision(int[] numbers) {
         int number1 = 0;
         int number2 = 0;
-         for (int i = 0; i <numbers.length;) {
+        for (int i = 0; i < numbers.length; ) {
             number1 = numbers[i];
             i++;
             number2 = numbers[i];
@@ -132,37 +131,32 @@ public class Calculator {
         return result;
     }
 
-     static double getModulardiv(int[] numbers) {
+    static double getModularDiv(int[] numbers) {
         int number1 = 0;
         int number2 = 0;
-         for (int i = 0; i <numbers.length;) {
+        for (int i = 0; i < numbers.length; ) {
             number1 = numbers[i];
             i++;
             number2 = numbers[i];
             break;
         }
-        double result =number1 % number2;
+        double result = number1 % number2;
         System.out.println(result);
         return result;
     }
 
-     static long getPower(int number) {
-        double pownumber = Math.pow(number, 2);
+    static long getPower(int[] numbers) {
+        double number = numbers[0];
+        double pow = numbers[1];
+        double pownumber = Math.pow(number, pow);
         System.out.println((int) pownumber);
         return (long) pownumber;
     }
 
-     static double getPercentage(int[] numbers) {
-        double number1 = 0;
-        double number2 = 0;
-         for (int i = 0; i <numbers.length;) {
-            number1 = numbers[i];
-            i++;
-            number2 = numbers[i];
-            break;
-        }
-        double result = (number2/number1)*100;
-
+    static double getPercentage(int[] numbers) {
+        double number1 = numbers[0];
+        double number2 = numbers[1];
+        double result = (number2 / number1) * 100;
         System.out.println(result);
         return result;
     }
@@ -176,10 +170,10 @@ public class Calculator {
         return factorial;
     }
 
-    static double getSquareroot(int num) {
-        double squareroot = Math.sqrt(num);
-        System.out.println(squareroot);
-        return squareroot;
+    static double getSquareRoot(int num) {
+        double square = Math.sqrt(num);
+        System.out.println(square);
+        return square;
     }
 }
 

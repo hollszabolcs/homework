@@ -11,11 +11,11 @@ public class CalculatorTest {
         Assertions.assertEquals(3, Calculator.getDif(sumtestArray));
         Assertions.assertEquals(10, Calculator.getMulti(sumtestArray));
         Assertions.assertEquals(2, Calculator.getDivision(sumtestArray));
-        Assertions.assertEquals(1, Calculator.getModulardiv(sumtestArray));
-        Assertions.assertEquals(25, Calculator.getPower(5));
+        Assertions.assertEquals(1, Calculator.getModularDiv(sumtestArray));
+        Assertions.assertEquals(25, Calculator.getPower(sumtestArray));
         Assertions.assertEquals(40, Calculator.getPercentage(sumtestArray));
         Assertions.assertEquals(120, Calculator.getFactorial(5));
-        Assertions.assertEquals(3, Calculator.getSquareroot(9));
+        Assertions.assertEquals(3, Calculator.getSquareRoot(9));
 
 
     }
