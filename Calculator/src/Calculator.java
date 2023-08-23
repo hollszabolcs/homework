@@ -121,7 +121,7 @@ public class Calculator {
     static double getPercentage(int[] numbers) {
         double number1 = numbers[0];
         double number2 = numbers[1];
-        double result = (number2 / number1) * 100;
+        double result = (number2 / (number1 / 100));
         return result;
     }
 

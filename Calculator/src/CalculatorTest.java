@@ -10,7 +10,7 @@ public class CalculatorTest {
         Assertions.assertEquals(7, Calculator.getSum(sumtestArray));
         Assertions.assertEquals(3, Calculator.getDif(sumtestArray));
         Assertions.assertEquals(10, Calculator.getMulti(sumtestArray));
-        Assertions.assertEquals(2, Calculator.getDivision(sumtestArray));
+        Assertions.assertEquals(2.5, Calculator.getDivision(sumtestArray));
         Assertions.assertEquals(1, Calculator.getModularDiv(sumtestArray));
         Assertions.assertEquals(25, Calculator.getPower(sumtestArray));
         Assertions.assertEquals(40, Calculator.getPercentage(sumtestArray));
