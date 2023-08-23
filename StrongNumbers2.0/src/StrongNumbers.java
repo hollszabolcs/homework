@@ -5,12 +5,8 @@ public class StrongNumbers {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int number = getNumber(scanner);
-        int digits = getStrongNumber(number);
-        if (!isStrong(number, digits)) {
-            System.out.println(number + " Is not a strong number");
-        } else {
-            System.out.println(number + " Is a strong number");
-        }
+        getResult(number);
+
     }
 
     static int getNumber(Scanner scanner) {
@@ -19,24 +15,27 @@ public class StrongNumbers {
         return number;
     }
 
-    static int getStrongNumber(int number) {
+    static int getResult(int number) {
         int digit;
         int factorial = 1;
         int result = 0;
-        while (number > 0) {
-            digit = number % 10;
-            number /= 10;
+        int calculate = number;
+        while (calculate > 0) {
+            digit = calculate % 10;
+            calculate /= 10;
             for (int i = 1; i <= digit; i++) {
                 factorial *= i;
             }
             result += factorial;
             factorial = 1;
         }
-        return result;
-    }
+        if (result == number) {
+            System.out.println(number + " Is a Strong number");
+        } else {
+            System.out.println(number + " Is NOT a Strong number");
 
-    static boolean isStrong(int inpunt, int result) {
-        return (inpunt == result);
+        }
+        return result;
     }
 }
 
