@@ -2,10 +2,12 @@ import java.util.Scanner;
 
 
 public class StrongNumbers {
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int number = getNumber(scanner);
-        getResult(number);
+        getFactorialDigitSum(number);
+        isStrongNumber(number);
 
     }
 
@@ -15,10 +17,10 @@ public class StrongNumbers {
         return number;
     }
 
-    static int getResult(int number) {
+    static int getFactorialDigitSum(int number) {
         int digit;
         int factorial = 1;
-        int result = 0;
+        int Sum = 0;
         int calculate = number;
         while (calculate > 0) {
             digit = calculate % 10;
@@ -26,16 +28,19 @@ public class StrongNumbers {
             for (int i = 1; i <= digit; i++) {
                 factorial *= i;
             }
-            result += factorial;
+            Sum += factorial;
             factorial = 1;
         }
-        if (result == number) {
+        return Sum;
+    }
+
+    static void isStrongNumber(int number) {
+        if (getFactorialDigitSum(number) == number) {
             System.out.println(number + " Is a Strong number");
         } else {
             System.out.println(number + " Is NOT a Strong number");
 
         }
-        return result;
     }
 }
 
