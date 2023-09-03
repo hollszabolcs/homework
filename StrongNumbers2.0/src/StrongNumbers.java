@@ -6,7 +6,7 @@ public class StrongNumbers {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int number = getNumber(scanner);
-        getFactorialDigitSum(number);
+/*        getFactorialDigitSum(number);*/
         isStrongNumber(number);
         getInput(number);
 
@@ -18,7 +18,7 @@ public class StrongNumbers {
         return number;
     }
 
-    static int getFactorialDigitSum(int number) {
+    private static int getFactorialDigitSum(int number) {
         int digit;
         int factorial = 1;
         int Sum = 0;
