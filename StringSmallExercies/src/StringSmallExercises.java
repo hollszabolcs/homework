@@ -4,10 +4,10 @@ public class StringSmallExercises {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String text = getText(scanner);
-        int countofb = getBLetters(text);
-        getNumberOfB(countofb);
+        int countofb = getBCharacter(text);
+        sysoutNumberOfB(countofb);
         int countofhellos = getHellos(text);
-        getNumberOfHellos(countofhellos);
+        sysoutNumberOfHellos(countofhellos);
     }
 
     public static String getText(Scanner scanner) {
@@ -16,39 +16,39 @@ public class StringSmallExercises {
         return text;
     }
 
-    public static int getBLetters(String text) {
-        char letters = 0;
+    public static int getBCharacter(String text) {
+        char character = 0;
         int counter = 0;
         for (int i = 0; i < text.length(); i++) {
-            letters = text.charAt(i);
-            if (letters == 'b' || letters == 'B') {
+            character = text.charAt(i);
+            if (character == 'B') {
                 counter++;
             }
         }
         return counter;
     }
 
-    public static void getNumberOfB(int numbers) {
+    public static void sysoutNumberOfB(int numbers) {
         System.out.println("There is " + numbers + " 'b' in this text");
     }
 
     public static int getHellos(String text) {
-        char letter = 0;
+        char character = 0;
         String temporarytext = "";
-        int conunter = 0;
+        int counter = 0;
         for (int i = 0; i < text.length(); i++) {
-            letter = text.charAt(i);
-            if (letter == 'H' || letter == 'h') {
+            character = text.charAt(i);
+            if (character == 'h') {
                 temporarytext = text.substring(i,i+5);
-                if (temporarytext.contains("hello") || temporarytext.contains("Hello")) {
-                    conunter += 1;
+                if (temporarytext.contains("hello")) {
+                    counter += 1;
                 }
             }
         }
-        return conunter;
+        return counter;
     }
 
-    public static void getNumberOfHellos(int numbers) {
+    public static void sysoutNumberOfHellos(int numbers) {
         System.out.println("There is " + numbers + " 'hello' in this text");
     }
 }
