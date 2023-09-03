@@ -17,7 +17,7 @@ public class Calculator {
         int[] operands = new int[2];
         int operand = 0;
         if (number <= 7) {
-            operands = getOneOperands(scanner);
+            operands = getTwoOperands(scanner);
         } else {
             operand = getOneOperand(scanner);
         }
@@ -58,12 +58,11 @@ public class Calculator {
         return scanner.nextInt();
     }
 
-    private static int[] getOneOperands(Scanner scanner) {
+    private static int[] getTwoOperands(Scanner scanner) {
         int[] operands = new int[2];
         System.out.println("Please type two numbers");
-        for (int i = 0; i < operands.length; ) {
+        for (int i = 0; i < operands.length; i++ ) {
             operands[i] = scanner.nextInt();
-            i++;
         }
         return operands;
     }
