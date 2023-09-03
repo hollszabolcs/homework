@@ -8,6 +8,7 @@ public class StrongNumbers {
         int number = getNumber(scanner);
         getFactorialDigitSum(number);
         isStrongNumber(number);
+        getInput(number);
 
     }
 
@@ -34,13 +35,18 @@ public class StrongNumbers {
         return Sum;
     }
 
-    static void isStrongNumber(int number) {
-        if (getFactorialDigitSum(number) == number) {
-            System.out.println(number + " Is a Strong number");
-        } else {
-            System.out.println(number + " Is NOT a Strong number");
+    static boolean isStrongNumber(int number) {
+        return (getFactorialDigitSum(number) == number);
 
+    }
+
+    static void getInput(int number) {
+        if (!isStrongNumber(number)) {
+            System.out.println(number + " Is NOT a Strong number");
+        } else {
+            System.out.println(number + " Is a Strong number");
         }
     }
+
 }
 
