@@ -4,10 +4,10 @@ public class StringSmallExercises {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String text = getText(scanner);
-        int countofb = getAmountOfB(text);
+        int countofb = getAmountOfBs(text);
         printNumberOfBs(countofb);
         int countofhellos = getHellos(text);
-        printNumberOfHello(countofhellos);
+        printNumberOfHellos(countofhellos);
     }
 
     public static String getText(Scanner scanner) {
@@ -16,7 +16,7 @@ public class StringSmallExercises {
         return text;
     }
 
-    public static int getAmountOfB(String text) {
+    public static int getAmountOfBs(String text) {
         int counter = 0;
         for (int i = 0; i < text.length(); i++) {
             char character = text.charAt(i);
@@ -46,7 +46,7 @@ public class StringSmallExercises {
         return counter;
     }
 
-    public static void printNumberOfHello(int numbers) {
+    public static void printNumberOfHellos(int numbers) {
         System.out.println("There is " + numbers + " 'hello' in this text");
     }
 }
