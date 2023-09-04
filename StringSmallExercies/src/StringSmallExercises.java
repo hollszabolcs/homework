@@ -4,10 +4,10 @@ public class StringSmallExercises {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String text = getText(scanner);
-        int countofb = getBCharacter(text);
-        sysoutNumberOfB(countofb);
+        int countofb = getAmountOfB(text);
+        printNumberOfBs(countofb);
         int countofhellos = getHellos(text);
-        sysoutNumberOfHellos(countofhellos);
+        printNumberOfHello(countofhellos);
     }
 
     public static String getText(Scanner scanner) {
@@ -16,11 +16,10 @@ public class StringSmallExercises {
         return text;
     }
 
-    public static int getBCharacter(String text) {
-        char character = 0;
+    public static int getAmountOfB(String text) {
         int counter = 0;
         for (int i = 0; i < text.length(); i++) {
-            character = text.charAt(i);
+            char character = text.charAt(i);
             if (character == 'B') {
                 counter++;
             }
@@ -28,18 +27,17 @@ public class StringSmallExercises {
         return counter;
     }
 
-    public static void sysoutNumberOfB(int numbers) {
+    public static void printNumberOfBs(int numbers) {
         System.out.println("There is " + numbers + " 'b' in this text");
     }
 
     public static int getHellos(String text) {
         char character = 0;
-        String temporarytext = "";
         int counter = 0;
         for (int i = 0; i < text.length(); i++) {
             character = text.charAt(i);
             if (character == 'h') {
-                temporarytext = text.substring(i,i+5);
+                String temporarytext = text.substring(i, i + 5);
                 if (temporarytext.contains("hello")) {
                     counter += 1;
                 }
@@ -48,7 +46,7 @@ public class StringSmallExercises {
         return counter;
     }
 
-    public static void sysoutNumberOfHellos(int numbers) {
+    public static void printNumberOfHello(int numbers) {
         System.out.println("There is " + numbers + " 'hello' in this text");
     }
 }
