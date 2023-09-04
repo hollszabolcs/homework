@@ -6,10 +6,8 @@ public class StrongNumbers {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int number = getNumber(scanner);
-/*        getFactorialDigitSum(number);*/
         isStrongNumber(number);
         getInput(number);
-
     }
 
     static int getNumber(Scanner scanner) {
@@ -21,7 +19,7 @@ public class StrongNumbers {
     private static int getFactorialDigitSum(int number) {
         int digit;
         int factorial = 1;
-        int Sum = 0;
+        int sum = 0;
         int calculate = number;
         while (calculate > 0) {
             digit = calculate % 10;
@@ -29,15 +27,14 @@ public class StrongNumbers {
             for (int i = 1; i <= digit; i++) {
                 factorial *= i;
             }
-            Sum += factorial;
+            sum += factorial;
             factorial = 1;
         }
-        return Sum;
+        return sum;
     }
 
     static boolean isStrongNumber(int number) {
         return (getFactorialDigitSum(number) == number);
-
     }
 
     static void getInput(int number) {
@@ -47,6 +44,5 @@ public class StrongNumbers {
             System.out.println(number + " Is a Strong number");
         }
     }
-
 }
 
