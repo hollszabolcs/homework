@@ -6,6 +6,6 @@ public class Main {
         person.introduce();
          Chef chef = new Chef(42,"Gabor",Gender.MAN);
          chef.introduce();
-        chef.cook("brocgcoli");
+        chef.cook("brocccoli");
     }
 }
