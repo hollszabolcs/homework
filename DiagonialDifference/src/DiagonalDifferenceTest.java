@@ -17,7 +17,7 @@ public class DiagonialDifferenceTest {
                 {0, 2, 3, 4, 1},
                 {0, 1, 1, 2, 2},
         };
-        Assertions.assertEquals(0, DiagonialDifference.getDiagonialDifference(3, testmatrix));
-        Assertions.assertEquals(-2, DiagonialDifference.getDiagonialDifference(5,testmatrixtwo));
+        Assertions.assertEquals(0, DiagonalDifference.getDiagonialDifference(3, testmatrix));
+        Assertions.assertEquals(-2, DiagonalDifference.getDiagonialDifference(5,testmatrixtwo));
     }
 }
