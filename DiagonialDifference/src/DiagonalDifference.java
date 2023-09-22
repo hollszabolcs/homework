@@ -1,13 +1,14 @@
 import java.util.Scanner;
 
 
-public class DiagonialDifference {
+public class DiagonalDifference {
     public static void main(String[] args) {
+
         Scanner scanner = new Scanner(System.in);
-        int rows = getRows(scanner);
-        int culombs = getCoulombs(scanner);
-        int[][] matrix = getMatrix(rows, culombs, scanner);
-        int sum = getDiagonialDifference(rows, matrix);
+        int length = getRows(scanner);
+        int coulombs = getCoulombs(scanner);
+        int[][] matrix = getMatrix(length, coulombs, scanner);
+        int sum = getDiagonalDifference(length, matrix);
         System.out.println("The summarize of the Diagonial Difference is:" + sum);
     }
 
@@ -19,8 +20,8 @@ public class DiagonialDifference {
 
     public static int getCoulombs(Scanner scanner) {
         System.out.println("And how many coulumns would you like?");
-        int coulumns = scanner.nextInt();
-        return coulumns;
+        int coulombs = scanner.nextInt();
+        return coulombs;
     }
 
     public static int[][] getMatrix(int rows, int coulombs, Scanner scanner) {
@@ -35,33 +36,14 @@ public class DiagonialDifference {
         return matrix;
     }
 
-    public static int getDiagonialDifference(int rows, int[][] matrix) {
-        int counter = 0;
+    public static int getDiagonalDifference(int matrixLength, int[][] matrix) {
         int sumleft = 0;
         int sumright = 0;
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j <= j + 1; j++) {
-                if (j == counter) {
-                    System.out.println(matrix[i][j]);
-                    sumleft += matrix[i][j];
-                    counter++;
-                    break;
-                }
-            }
-        }
-        counter = rows - 1;
-        for (int i = 0; i < rows; i++) {
-            for (int j = rows - 1; j <= j + 1; j--) {
-                if (j == counter) {
-                    System.out.println(matrix[i][j]);
-                    sumright += matrix[i][j];
-                    counter--;
-                    break;
-                }
-            }
+        for (int i = 0; i < matrixLength; i++) {
+            sumleft += matrix[i][i];
+            sumright += matrix[i][matrixLength - 1 - i];
         }
         return sumleft - sumright;
     }
-
 }
 

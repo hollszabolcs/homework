@@ -1,10 +1,9 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class DiagonialDifferenceTest {
+public class DiagonalDifferenceTest {
     @Test
-
-    void testDiagonialDifference(){
+    void testDiagonalDifference(){
         int[][] testmatrix= {
                 {1,2,3},
                 {4,5,6},
@@ -17,7 +16,7 @@ public class DiagonialDifferenceTest {
                 {0, 2, 3, 4, 1},
                 {0, 1, 1, 2, 2},
         };
-        Assertions.assertEquals(0, DiagonalDifference.getDiagonialDifference(3, testmatrix));
-        Assertions.assertEquals(-2, DiagonalDifference.getDiagonialDifference(5,testmatrixtwo));
+        Assertions.assertEquals(0, DiagonalDifference.getDiagonalDifference(3, testmatrix));
+        Assertions.assertEquals(-2, DiagonalDifference.getDiagonalDifference(5,testmatrixtwo));
     }
 }
