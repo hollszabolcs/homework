@@ -28,7 +28,7 @@ public class StringSmallExercises {
     }
 
     public static void printNumberOfBs(int numbers) {
-        System.out.println("There is " + numbers + " 'b' in this text");
+            System.out.println("There is " + numbers + " 'b' in this text");
     }
 
     public static int getHelloCount(String text) {
