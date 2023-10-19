@@ -1,11 +1,33 @@
 package occupations;
 
-import com.sun.security.jgss.GSSUtil;
-
 public class Person {
-    int age;
-    String name ;
-    Gender gender;
+    public int getAge() {
+        return age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Gender getGender() {
+        return gender;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
+    }
+
+    private int age;
+    private String name ;
+    private Gender gender;
 
     public Person(){}
 
