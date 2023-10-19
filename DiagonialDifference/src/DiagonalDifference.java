@@ -6,9 +6,9 @@ public class DiagonalDifference {
 
         Scanner scanner = new Scanner(System.in);
         int row = getRows(scanner);
-        int coulumns = getCoulumns(scanner);
-        int[][] matrix = getMatrix(row, coulumns, scanner);
-        int sum = getDiagonalDifference(row, matrix);
+        int columns = getColumns(scanner);
+        int[][] matrix = getMatrix(row, columns, scanner);
+        int sum = getDiagonalDifference(matrix);
         System.out.println("The summarize of the Diagonal Difference is:" + sum);
     }
 
@@ -18,17 +18,17 @@ public class DiagonalDifference {
         return rows;
     }
 
-    public static int getCoulumns(Scanner scanner) {
-        System.out.println("And how many coulumns would you like?");
-        int coulombs = scanner.nextInt();
-        return coulombs;
+    public static int getColumns(Scanner scanner) {
+        System.out.println("And how many columns would you like?");
+        int columns = scanner.nextInt();
+        return columns;
     }
 
-    public static int[][] getMatrix(int rows, int coulumns, Scanner scanner) {
+    public static int[][] getMatrix(int rows, int columns, Scanner scanner) {
         System.out.println("Please give numbers between 0 and 9");
-        int[][] matrix = new int[rows][coulumns];
+        int[][] matrix = new int[rows][columns];
         for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < coulumns; j++) {
+            for (int j = 0; j < columns; j++) {
                 System.out.print((i + 1) + "st row " + (j + 1) + "st' columb ");
                 matrix[i][j] = scanner.nextInt();
             }
@@ -36,12 +36,13 @@ public class DiagonalDifference {
         return matrix;
     }
 
-    public static int getDiagonalDifference(int matrixLength, int[][] matrix) {
+    public static int getDiagonalDifference(int[][] matrix) {
         int sumleft = 0;
         int sumright = 0;
-        for (int i = 0; i < matrix.length; i++) {
+        int numRows = matrix.length;
+        for (int i = 0; i < numRows; i++) {
             sumleft += matrix[i][i];
-            sumright += matrix[i][matrixLength - 1 - i];
+            sumright += matrix[i][numRows - 1 - i];
         }
         return sumleft - sumright;
     }
