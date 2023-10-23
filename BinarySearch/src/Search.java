@@ -1,5 +1,5 @@
 public class Search {
-    public static int binarySearch(int[] array, int number) {
+    public static int getBinarySearch(int[] array, int number) {
         return BinarySearch(array, number, 0);
     }
 
