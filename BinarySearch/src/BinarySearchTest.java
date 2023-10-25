@@ -6,7 +6,7 @@ public class BinarySearchTest {
 
     @Test
     void testBinarySearch() {
-        Assertions.assertEquals(3, Search.getBinarySearch(testArray, 22));
-        Assertions.assertEquals(-1, Search.getBinarySearch(testArray, 77));
+        Assertions.assertEquals(3, Search.binarySearch(testArray, 22));
+        Assertions.assertEquals(-1, Search.binarySearch(testArray, 77));
     }
 }

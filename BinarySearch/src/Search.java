@@ -1,9 +1,9 @@
 public class Search {
-    public static int getBinarySearch(int[] array, int number) {
-        return BinarySearch(array, number, 0);
+    public static int binarySearch(int[] array, int number) {
+        return binarySearch(array, number, 0);
     }
 
-    private static int BinarySearch(int[] array, int number, int offset) {
+    private static int binarySearch(int[] array, int number, int offset) {
         int leftIndex = 0;
         int rightIndex = array.length - 1;
         while (leftIndex <= rightIndex) {
