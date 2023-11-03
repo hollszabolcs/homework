@@ -8,7 +8,7 @@ public class Main {
         boolean italianRegex = Regex.isItalianPhoneNumberRegex("+393345678430");
         boolean helloWorld = NonRegex.isHelloOrWorld("hello");
         boolean helloWorldRegex = Regex.isHelloOrWorldRegex("HeLlo");
-        boolean specialCharacter = NonRegex.isSpecialCharacter("asdBBaB41q?2we.");
+        boolean specialCharacter = NonRegex.isSpecialCode("asdBBaB41q?2we.");
         boolean specialCharacterRegex = Regex.isSpecialCharacterRegex("asdBBaB41q?2we.");
         System.out.println("ean13 no regex: " + ean13);
         System.out.println("Italian phone num no regex: " + italian);

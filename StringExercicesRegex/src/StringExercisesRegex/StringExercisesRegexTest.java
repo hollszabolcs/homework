@@ -16,9 +16,9 @@ public class StringExercisesRegexTest {
         Assertions.assertEquals(true, NonRegex.isHelloOrWorld("hello"));
         Assertions.assertEquals(true, NonRegex.isHelloOrWorld("WoRlD"));
         Assertions.assertEquals(false, NonRegex.isHelloOrWorld("Sanyi"));
-        Assertions.assertEquals(true, NonRegex.isSpecialCharacter("asdBBaB41q?2we."));
-        Assertions.assertEquals(false, NonRegex.isSpecialCharacter("asdBdaB41q?2we."));
-        Assertions.assertEquals(false, NonRegex.isSpecialCharacter("asdBdaB41q?2we......df"));
+        Assertions.assertEquals(true, NonRegex.isSpecialCode("asdBBaB41q?2we."));
+        Assertions.assertEquals(false, NonRegex.isSpecialCode("asdBdaB41q?2we."));
+        Assertions.assertEquals(false, NonRegex.isSpecialCode("asdBdaB41q?2we......df"));
         Assertions.assertEquals(true, Regex.isEANRegex("1234567890123"));
         Assertions.assertEquals(false, Regex.isEANRegex("12sf567890123"));
         Assertions.assertEquals(true, Regex.isItalianPhoneNumberRegex("+393345678430"));

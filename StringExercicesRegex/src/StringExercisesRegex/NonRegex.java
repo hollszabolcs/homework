@@ -33,7 +33,7 @@ public class NonRegex {
                     counter++;
                     break;
                 }
-                if (Character.isLetter(phoneChar)) {
+                if (!Character.isDigit(phoneChar)) {
                     return false;
                 }
             }
@@ -45,7 +45,7 @@ public class NonRegex {
         return text.equalsIgnoreCase("hello") || text.equalsIgnoreCase("world");
     }
 
-    public static boolean isSpecialCharacter(String text) {
+    public static boolean isSpecialCode(String text) {
         var counter = 0;
         char specialChar;
         for (var i = 0; i <= 2; i++) {
@@ -76,7 +76,7 @@ public class NonRegex {
         if (specialChar > 0 || specialChar <= 5) {
             counter++;
         }
-        counter = counter + 5;
+        counter +=5;
         specialChar = text.charAt(text.length() - 1);
         if (specialChar == '.') {
             counter++;
