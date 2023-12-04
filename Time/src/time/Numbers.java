@@ -1,4 +1,4 @@
-package Time;
+package time;
 
 public enum Numbers {
     ZERO(""), ONE("one"), TWO("two"), THREE("three"), FOUR("four"), FIVE("five"), SIX("six"), SEVEN("seven"),
@@ -9,7 +9,7 @@ public enum Numbers {
     TWENTY_EIGHT("twenty-eight"), TWENTY_NINE("twenty-nine"), HALF("half");
     final String text;
 
-    Numbers(String text) {
+     Numbers(String text) {
         this.text = text;
     }
 

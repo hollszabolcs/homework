@@ -1,9 +1,9 @@
-package Time;
+package time;
 
 
 public class Main {
     public static void main(String[] args) {
-        Output output = new Output();
+        TimeConverter output = new TimeConverter();
         output.output();
     }
 }
