@@ -8,9 +8,9 @@ public class CsvParserTest {
 
     @Test
     void ParserTest() {
-        Assertions.assertEquals(false, validator.isValid("192.168.0.1"));
-        Assertions.assertEquals(false, validator.isValid("[Britney, 56, <script>alert(document.cookie)</script>]"));
-        Assertions.assertEquals(false, validator.isValid("[Jonny, 96, <script>alert(ittenvanegytrojai.cookie)</script>]"));
-        Assertions.assertEquals(true, validator.isValid("[Myrthill, 25, garbage-collector]"));
+        Assertions.assertFalse(validator.isValid("192.168.0.1"));
+        Assertions.assertFalse(validator.isValid("[Britney, 56, <script>alert(document.cookie)</script>]"));
+        Assertions.assertFalse(validator.isValid("[Jonny, 96, <script>alert(ittenvanegytrojai.cookie)</script>]"));
+        Assertions.assertTrue(validator.isValid("[Myrthill, 25, garbage-collector]"));
     }
 }
