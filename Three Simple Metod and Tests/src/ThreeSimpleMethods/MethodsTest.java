@@ -1,9 +1,11 @@
 package ThreeSimpleMethods;
 
-import org.junit.Assert;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
+
+import java.util.jar.JarEntry;
 
 public class MethodsTest {
     UniqueCharacters uniqueCharacters = new UniqueCharacters();
@@ -11,14 +13,14 @@ public class MethodsTest {
     @ParameterizedTest
     @ValueSource(strings = {"wasd", "tha"})
     void uniqueOne(String string) {
-        Assert.assertTrue(uniqueCharacters.isUnique(string));
+        Assertions.assertTrue(uniqueCharacters.isUnique(string));
 
     }
 
     @ParameterizedTest
     @ValueSource(strings = {"hh", "wasdfw"})
     void uniqueTwo(String string) {
-        Assert.assertFalse(uniqueCharacters.isUnique(string));
+        Assertions.assertFalse(uniqueCharacters.isUnique(string));
     }
 
     PrimeCheck primeCheck = new PrimeCheck();
@@ -26,21 +28,23 @@ public class MethodsTest {
     @ParameterizedTest
     @ValueSource(ints = {11, 3})
     void primeOne(int number) {
-        Assert.assertTrue(primeCheck.isPrime(number));
+        Assertions.assertTrue(primeCheck.isPrime(number));
     }
 
     @ParameterizedTest
     @ValueSource(ints = {10, 20})
     void primeTwo(int number) {
-        Assert.assertFalse(primeCheck.isPrime(number));
+        Assertions.assertFalse(primeCheck.isPrime(number));
     }
 
     WordCount wordCount = new WordCount();
 
     @ParameterizedTest
-    @ValueSource(strings = {"Meddig vemhes egy teve?"})
+    @ValueSource(strings = {"Alma szép piros alma"})
     void wordCounter(String string) {
-        Assert.assertEquals("{1=Meddig, 2=vemhes, 3=egy, 4=teve?}", String.valueOf(wordCount.cutSentence(string)));
+        Assertions.assertEquals("{alma=2, piros=1, szép=1}", String.valueOf(wordCount.cutSentence(string)));
     }
+
+    JarEntry
 
 }
