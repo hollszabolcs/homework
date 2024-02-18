@@ -1,17 +1,18 @@
 package ThreeSimpleMethods;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class UniqueCharacters {
 
     public boolean isUnique(String text) {
-        for (int i = 0; i < text.length(); i++) {
-            char character = text.charAt(i);
-            for (int j = i + 1; j < text.length(); j++) {
-                char tempchar = text.charAt(j);
-                if (character == tempchar) {
-                    return false;
-                }
+        Set<Character> uniqueLetters = new HashSet<>();
+        for (char character : text.toCharArray()) {
+            if (!uniqueLetters.add(character)) {
+                return false;
             }
         }
         return true;
     }
 }
+
