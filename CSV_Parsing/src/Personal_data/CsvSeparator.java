@@ -1,20 +1,20 @@
 package Personal_data;
 
 public enum CsvSeparator {
-    space, coma, semicolon, tab;
+    SPACE, COMMA, SEMICOLON, TAB;
 
     public char getCsvSeparator() throws IllegalAccessException {
         switch (this) {
-            case space -> {
+            case SPACE -> {
                 return ' ';
             }
-            case coma -> {
+            case COMMA -> {
                 return ',';
             }
-            case semicolon -> {
+            case SEMICOLON -> {
                 return ';';
             }
-            case tab -> {
+            case TAB -> {
                 return '9';
             }
             default -> throw new IllegalAccessException("Unexpected value: " + this);

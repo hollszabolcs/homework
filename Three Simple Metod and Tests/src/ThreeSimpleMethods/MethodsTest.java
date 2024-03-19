@@ -44,7 +44,4 @@ public class MethodsTest {
     void wordCounter(String string) {
         Assertions.assertEquals("{alma=2, piros=1, szép=1}", String.valueOf(wordCount.cutSentence(string)));
     }
-
-    JarEntry
-
 }

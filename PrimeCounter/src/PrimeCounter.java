@@ -3,7 +3,7 @@ public class PrimeCounter {
 
     public static void main(String[] args) {
         int counter = 0;
-        for (int i = 1000; i <= 2073; i++) {
+        for (int i = 1; i <= 10; i++) {
             if (isPrime(i) == true) {
                 counter += 1;
                 System.out.println(i);
@@ -17,7 +17,7 @@ public class PrimeCounter {
         if (number < 1) {
             return false;
         }
-        for (int i = 2; i < Math.sqrt(number); i++) {
+        for (int i = 2; i <= Math.sqrt(number); i++) {
             if (number % i == 0) {
                 return false;
             }
