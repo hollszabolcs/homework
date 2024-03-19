@@ -48,6 +48,7 @@ public class StringSmallExercises {
 
     public static void printNumberOfHellos(int numbers) {
         System.out.println("There is " + numbers + " 'hello' in this text");
+
     }
 }
 
