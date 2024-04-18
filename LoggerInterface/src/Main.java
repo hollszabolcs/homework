@@ -6,4 +6,3 @@ public class Main {
         filelogger.log("Test message");
     }
 }
-Lo  
