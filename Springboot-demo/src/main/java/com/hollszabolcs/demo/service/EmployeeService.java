@@ -1,14 +1,20 @@
 package com.hollszabolcs.demo.service;
 
-import lombok.AllArgsConstructor;
+import com.hollszabolcs.demo.model.Employee;
+import com.hollszabolcs.demo.repository.EmployeeRepository;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 
 @Service
-@AllArgsConstructor
+@Slf4j
+@RequiredArgsConstructor
 public class EmployeeService {
-    public String getUpperCaseName(String name) {
-        return name.toUpperCase();
+    private final EmployeeRepository employeeRepository;
+
+    public Employee addEmployee(Employee employee) {
+        return employeeRepository.save(employee);
     }
 
 }
