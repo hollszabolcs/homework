@@ -12,8 +12,8 @@ public class Main {
         System.out.println(algorithmicRecap.taskSixGetUniqueChar("aaaaqqqwweertgtggé"));
         System.out.println(algorithmicRecap.taskSevenGetAllUniqueChar("qaalmmak"));
         System.out.println(algorithmicRecap.taskEightSameAmountOfAb("albma", "aadsddb"));
-        int[] numbers = {5, 3, 7, 6, 6};
-        System.out.println(algorithmicRecap.taskNineArrayContains(numbers, 9));
+        Integer[] numbers = {3, 5, 6, 6, 7};
+        System.out.println(algorithmicRecap.taskNineArrayContains(numbers, 3));
         List<String> texts = new ArrayList<>();
         texts.add("galagonya");
         texts.add("rakéta");
@@ -21,7 +21,7 @@ public class Main {
         System.out.println(algorithmicRecap.taskTenWhichString(texts, 'g'));
         int[] numbers2 = {3, 1, 2, 10, 1};
         System.out.println(algorithmicRecap.taskElevenReturnSum(numbers2));
-        System.out.println(algorithmicRecap.taskTwelveIsPrime(5, 9));
+        System.out.println(algorithmicRecap.taskTwelveIsRelativePrime(2, 3));
         String[][] routes = {
                 {"USA", "BRA"},
                 {"JPN", "PHL"},

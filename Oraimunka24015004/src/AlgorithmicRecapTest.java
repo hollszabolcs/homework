@@ -1,8 +1,7 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,20 +11,19 @@ public class AlgorithmicRecapTest {
     @Test
     void testAlgorithmicRecap() {
         Assertions.assertEquals("ikosc", algorithmicRecap.taskOneReverts("csoki"));
-        Assertions.assertEquals(true, algorithmicRecap.taskTwoIsPalindrome("kek"));
-        Assertions.assertEquals(false, algorithmicRecap.taskTwoIsPalindrome("zold"));
-        Assertions.assertEquals(true, algorithmicRecap.taskThreeIsAnagram("alsma", "salma"));
-        Assertions.assertEquals(false, algorithmicRecap.taskThreeIsAnagram("alsmaa", "salma"));
-        Assertions.assertEquals(11, algorithmicRecap.taskFourCountNumbers("as12df8"));
+        Assertions.assertTrue(algorithmicRecap.taskTwoIsPalindrome(algorithmicRecap.taskOneReverts("kek")));
+        Assertions.assertFalse(algorithmicRecap.taskTwoIsPalindrome("zold"));
+        Assertions.assertTrue(algorithmicRecap.taskThreeIsAnagram("alsma", "salma"));
+        Assertions.assertFalse(algorithmicRecap.taskThreeIsAnagram("alsmaa", "salma"));
+        Assertions.assertEquals(BigInteger.valueOf(11), algorithmicRecap.taskFourCountNumbers("as12df8"));
         Assertions.assertEquals(120, algorithmicRecap.taskFiveGetFactorial(5));
-        Assertions.assertEquals("{1=é}", algorithmicRecap.taskSixGetUniqueChar("aaaaqqqwweertgtggé"));
-        StringBuilder taskSevenResult = algorithmicRecap.taskSevenGetAllUniqueChar("qaalmmak");
-        Assertions.assertEquals("qlk", taskSevenResult.toString());
-        Assertions.assertEquals(true, algorithmicRecap.taskEightSameAmountOfAb("albma", "aadsddb"));
-        Assertions.assertEquals(false, algorithmicRecap.taskEightSameAmountOfAb("aalbma", "aadsddb"));
-        int[] numbers = {5, 3, 7, 6, 6};
-        Assertions.assertEquals(true, algorithmicRecap.taskNineArrayContains(numbers, 7));
-        Assertions.assertEquals(false, algorithmicRecap.taskNineArrayContains(numbers, 9));
+        Assertions.assertEquals('é', algorithmicRecap.taskSixGetUniqueChar("aaaaqqqwweertgtggé"));
+        Assertions.assertEquals("qlk", algorithmicRecap.taskSevenGetAllUniqueChar("qaalmmak"));
+        Assertions.assertTrue(algorithmicRecap.taskEightSameAmountOfAb("albma", "aadsddb"));
+        Assertions.assertFalse(algorithmicRecap.taskEightSameAmountOfAb("aalbma", "aadsddb"));
+        Integer[] numbers = {5, 3, 7, 6, 6};
+        Assertions.assertTrue(algorithmicRecap.taskNineArrayContains(numbers, 7));
+        Assertions.assertFalse(algorithmicRecap.taskNineArrayContains(numbers, 9));
         List<String> texts = new ArrayList<>();
         texts.add("galagonya");
         texts.add("rakéta");
@@ -37,15 +35,15 @@ public class AlgorithmicRecapTest {
         List<Integer> elevenList = new ArrayList<>();
         elevenList.addAll(List.of(taskEleven));
         Assertions.assertEquals(elevenList, algorithmicRecap.taskElevenReturnSum(numbers2));
-        Assertions.assertEquals(false, algorithmicRecap.taskTwelveIsPrime(5, 9));
-        Assertions.assertEquals(true, algorithmicRecap.taskTwelveIsPrime(5, 11));
+        Assertions.assertTrue(algorithmicRecap.taskTwelveIsRelativePrime(5, 9));
+        Assertions.assertFalse(algorithmicRecap.taskTwelveIsRelativePrime(4, 8));
         String[][] routes = {
-                {"USA", "BRA"},
-                {"JPN", "PHL"},
-                {"BRA", "UAE"},
-                {"UAE", "JPN"},
+                {"HUN", "SK"},
+                {"PL", "SLO"},
+                {"SK", "RO"},
+                {"RO", "PL"},
         };
-        String[] taskThirteenArray = {"USA", "BRA", "UAE", "JPN", "PHL"};
+        String[] taskThirteenArray = {"HUN", "SK", "RO", "PL", "SLO"};
         List<String> thirteenList = new ArrayList<>();
         thirteenList.addAll(List.of(taskThirteenArray));
         Assertions.assertEquals(thirteenList, algorithmicRecap.taskThirteenFindMatthewKnight(routes));

@@ -1,3 +1,4 @@
+import java.math.BigInteger;
 import java.util.*;
 
 public class AlgorithmicRecap {
@@ -15,8 +16,13 @@ public class AlgorithmicRecap {
     }
 
     boolean taskThreeIsAnagram(String text, String text2) {
-        Map<Character, Integer> map = new HashMap<>();
-        Map<Character, Integer> map2 = new HashMap<>();
+        Map<Character, Integer> map = getCharacters(text);
+        Map<Character, Integer> map2 = getCharacters(text2);
+        return map.equals(map2);
+    }
+
+    private HashMap<Character, Integer> getCharacters(String text) {
+        HashMap<Character, Integer> map = new HashMap<>();
         for (int i = 0; i < text.length(); i++) {
             char character = text.charAt(i);
             if (map.containsKey(character)) {
@@ -25,23 +31,15 @@ public class AlgorithmicRecap {
                 map.put(character, 1);
             }
         }
-        for (int i = 0; i < text2.length(); i++) {
-            char character = text2.charAt(i);
-            if (map2.containsKey(character)) {
-                map2.put(character, map2.get(character) + 1);
-            } else {
-                map2.put(character, 1);
-            }
-        }
-        return map.equals(map2);
+        return map;
     }
 
-    int taskFourCountNumbers(String text) {
-        int result = 0;
+    BigInteger taskFourCountNumbers(String text) {
+        BigInteger result = BigInteger.valueOf(0);
         for (int i = 0; i < text.length(); i++) {
-            char character = text.charAt(i);
+            Character character = text.charAt(i);
             if (Character.isDigit(character)) {
-                result += Character.getNumericValue(character);
+                result = result.add(BigInteger.valueOf(Character.getNumericValue(character)));
             }
         }
         return result;
@@ -55,22 +53,24 @@ public class AlgorithmicRecap {
         return result;
     }
 
-    String taskSixGetUniqueChar(String text) {
+    char taskSixGetUniqueChar(String text) {
         Map<Integer, Character> map = new HashMap<>();
         int key = 0;
+        char result = ' ';
         for (int i = 0; i < text.length(); i++) {
             char character = text.charAt(i);
             if (map.containsValue(character)) {
                 map.put(key + 1, character);
             } else {
                 map.put(key + 1, character);
+                result = character;
             }
         }
-        return map.toString();
+        return result;
     }
 
-    StringBuilder taskSevenGetAllUniqueChar(String text) {
-        StringBuilder result = new StringBuilder();
+    String taskSevenGetAllUniqueChar(String text) {
+        String result = "";
         List<Character> blacklist = new ArrayList<>();
         int counter = 0;
         for (int i = 0; i < text.length(); i++) {
@@ -82,7 +82,7 @@ public class AlgorithmicRecap {
                 }
             }
             if (counter == 0 && !blacklist.contains(character)) {
-                result.append((character));
+                result += character;
             } else {
                 blacklist.add(character);
                 counter = 0;
@@ -92,11 +92,11 @@ public class AlgorithmicRecap {
     }
 
     boolean taskEightSameAmountOfAb(String text, String text2) {
-        return (taskEightMethod('a', text) == taskEightMethod('a', text2))
-                && taskEightMethod('b', text) == taskEightMethod('b', text2);
+        return (countSimilarChar('a', text) == countSimilarChar('a', text2))
+                && countSimilarChar('b', text) == countSimilarChar('b', text2);
     }
 
-    private int taskEightMethod(char getChar, String text) {
+    private int countSimilarChar(char getChar, String text) {
         int counter = 0;
         for (int i = 0; i < text.length(); i++) {
             char character = text.charAt(i);
@@ -107,12 +107,11 @@ public class AlgorithmicRecap {
         return counter;
     }
 
-    boolean taskNineArrayContains(int[] numbers, int number) {
-        Arrays.sort(numbers);
-        for (int numb : numbers) {
-            if (number == numb) {
-                return true;
-            }
+    boolean taskNineArrayContains(Integer[] numbers, Integer number) {
+        List<Integer> list = Arrays.asList(numbers);
+        Set<Integer> set = new HashSet<>(list);
+        if (set.contains(number)) {
+            return true;
         }
         return false;
     }
@@ -145,40 +144,25 @@ public class AlgorithmicRecap {
         return list;
     }
 
-    boolean taskTwelveIsPrime(int number1, int number2) {
-        return taskTwelveMethod(number1) && taskTwelveMethod(number2);
-    }
-
-    private boolean taskTwelveMethod(int number) {
-        if (number < 2) {
-            return false;
-        }
-        for (int i = 2; i <= Math.sqrt(number); i++) {
-            if (number % i == 0) {
+    boolean taskTwelveIsRelativePrime(int number1, int number2) {
+        for (int i = 1; i <= number1; i++) {
+            if (number1 % i == 0 && number2 % i == 0 && i > 1) {
                 return false;
             }
         }
         return true;
     }
 
+
     List taskThirteenFindMatthewKnight(String[][] arrays) {
         List<String> routes = new ArrayList<>();
-        for (int i = 0; i < arrays.length; i++) {
+        routes.add(arrays[0][0]);
+        routes.add(arrays[0][1]);
+        for (int i = 1; i <= arrays.length - 1; i++) {
             for (int j = 0; j <= 1; j++) {
-                if (i == 0 && (j == 0 || j == 1)) {
-                    routes.add(arrays[i][j]);
-                }
-                if (arrays[i][0].equals("BRA")) {
-                    routes.add(arrays[i][1]);
-                    break;
-                }
-            }
-        }
-        for (int i = 0; i < arrays.length; i++) {
-            for (int j = 0; j <= 1; j++) {
-                if (!arrays[i][0].equals("USA") && !arrays[i][0].equals("BRA") && !arrays[i][0].equals("UAE")) {
-                    routes.add(arrays[i][0]);
-                    routes.add(arrays[i][1]);
+                if (routes.get(routes.size() - 1).equals(arrays[i][j]) && j == 0) {
+                    routes.add(arrays[i][j + 1]);
+                    i = 0;
                     break;
                 }
             }
