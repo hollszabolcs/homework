@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 
 @Service
 @Slf4j
@@ -15,6 +17,11 @@ public class EmployeeService {
 
     public Employee addEmployee(Employee employee) {
         return employeeRepository.save(employee);
+    }
+
+    public List<Employee> findByName(String name){
+        final var employee =employeeRepository.findByName("Tibi");
+        return employee;
     }
 
 }
