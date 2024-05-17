@@ -20,7 +20,7 @@ public class EmployeeController {
         return employeeService.addEmployee(employee);
     }
 
-    @GetMapping("/employee2")
+    @GetMapping("/get-employee")
     List<Employee> getEmployee(@RequestParam String name) {
         log.info("Finding people by name {}", name);
         return employeeService.findByName(name);

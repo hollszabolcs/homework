@@ -20,7 +20,7 @@ public class EmployeeService {
     }
 
     public List<Employee> findByName(String name){
-        final var employee =employeeRepository.findByName("Tibi");
+        final var employee =employeeRepository.findByName(name);
         return employee;
     }
 

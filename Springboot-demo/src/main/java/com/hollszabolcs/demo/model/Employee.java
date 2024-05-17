@@ -5,11 +5,8 @@ import lombok.*;
 
 @Entity(name = "employees")
 @Data
-@Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
