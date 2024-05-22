@@ -20,14 +20,14 @@ public class APIData {
     }
 
     public static class Current {
-        private String lat_updated;
-        private String temp_c;
+        private static String lat_updated;
+        private static String temp_c;
 
-        public String getLat_updated() {
+        public static String getLat_updated() {
             return lat_updated;
         }
 
-        public String getTemp_c() {
+        public static String getTemp_c() {
             return temp_c;
         }
     }
