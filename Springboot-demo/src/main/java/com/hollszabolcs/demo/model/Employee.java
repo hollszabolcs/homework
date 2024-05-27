@@ -16,8 +16,3 @@ public class Employee {
     @Column
     private int age;
 }
-
-
-
-
-
