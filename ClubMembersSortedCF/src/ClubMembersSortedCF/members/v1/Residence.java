@@ -3,9 +3,9 @@ package ClubMembersSortedCF.members.v1;
 import java.util.Objects;
 
 public class Residence {
-    int postalCode;
-    String city;
-    String address;
+   private final int postalCode;
+   private final String city;
+   private final String address;
 
     private boolean zipCodeValidator(int zipCode) {
         return zipCode >= 1000 && zipCode <= 9999;
@@ -19,18 +19,7 @@ public class Residence {
             throw new IllegalArgumentException("Invalid postal cocde:" + postalCode);
         }
     }
-
-    public int getPostalCode() {
-        return postalCode;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public String getAddress() {
-        return address;
-    }
+    
 
     @Override
     public boolean equals(Object o) {

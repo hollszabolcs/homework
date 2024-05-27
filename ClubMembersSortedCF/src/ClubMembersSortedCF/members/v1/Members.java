@@ -8,7 +8,7 @@ import java.util.TreeSet;
 
 public class Members {
 
-    SortedSet<Person> personSortedSet = new TreeSet<>(new nameComparator());
+    SortedSet<Person> personSortedSet = new TreeSet<>(new NameComparator());
     Scanner scanner = new Scanner(System.in);
 
     public Members() {
@@ -23,7 +23,7 @@ public class Members {
         return Grade.UNKNOWN;
     }
 
-    Person personBuilder(Person p, Scanner scanner) {
+    Person createPerson(Person p, Scanner scanner) {
         System.out.println("Please enter first name and last name");
         String firstName = scanner.nextLine();
         String secondName = scanner.nextLine();
@@ -54,7 +54,7 @@ public class Members {
     }
 
     Person addPerson(Person p) {
-        return personBuilder(p, scanner);
+        return createPerson(p, scanner);
     }
 
     boolean removePerson(Person p) {
