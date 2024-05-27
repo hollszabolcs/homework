@@ -3,12 +3,12 @@ import java.util.*;
 
 public class AlgorithmicRecap {
     public String taskOneReverts(String text) {
-        String result = "";
+        StringBuilder result = new StringBuilder();
         for (int i = text.length(); i >= 1; i--) {
             char charcter = text.charAt(i - 1);
-            result = result + charcter;
+            result.append(charcter);
         }
-        return result;
+        return result.toString();
     }
 
     boolean taskTwoIsPalindrome(String text) {
@@ -45,7 +45,7 @@ public class AlgorithmicRecap {
         return result;
     }
 
-    int taskFiveGetFactorial(int number) {
+    int taskFiveGetFactorial(long number) {
         int result = 1;
         for (int i = 1; i <= number; i++) {
             result *= i;
@@ -67,6 +67,7 @@ public class AlgorithmicRecap {
             }
         }
         return result;
+        //TODO fix this (Csongor description)
     }
 
     String taskSevenGetAllUniqueChar(String text) {
