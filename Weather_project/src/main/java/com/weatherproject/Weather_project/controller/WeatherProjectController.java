@@ -3,18 +3,17 @@ package com.weatherproject.Weather_project.controller;
 import com.weatherproject.Weather_project.service.GetJsonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 @RestController
-public class Weather_projectController {
+public class WeatherProjectController {
     @Autowired
     private RestTemplate restTemplate;
     private final GetJsonService getJsonService;
 
     @Autowired
-    public Weather_projectController(GetJsonService getJsonService) {
+    public WeatherProjectController(GetJsonService getJsonService) {
         this.getJsonService = getJsonService;
     }
 

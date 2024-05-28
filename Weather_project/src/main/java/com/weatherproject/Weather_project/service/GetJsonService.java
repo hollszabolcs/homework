@@ -1,16 +1,17 @@
 package com.weatherproject.Weather_project.service;
 
 import com.google.gson.Gson;
+import com.weatherproject.Weather_project.dto.WeatherDto;
 import com.weatherproject.Weather_project.model.WeatherData;
-import com.weatherproject.Weather_project.repository.Weather_projectRepository;
+import com.weatherproject.Weather_project.repository.WeatherProjectRepository;
 import org.springframework.stereotype.Service;
 
 @Service
 public class GetJsonService {
-    private final Weather_projectService weatherProjectService;
-    private final Weather_projectRepository weather_projectRepository;
+    private final WeatherProjectService weatherProjectService;
+    private final WeatherProjectRepository weather_projectRepository;
 
-    public GetJsonService(Weather_projectService weatherProjectService, Weather_projectRepository weatherProjectRepository) {
+    public GetJsonService(WeatherProjectService weatherProjectService, WeatherProjectRepository weatherProjectRepository) {
         this.weatherProjectService = weatherProjectService;
         this.weather_projectRepository = weatherProjectRepository;
     }
@@ -18,7 +19,12 @@ public class GetJsonService {
     public void processJsonData() {
         String jsonData = weatherProjectService.getWeatherFromApi();
         Gson gson = new Gson();
-        WeatherData weatherData = gson.fromJson(jsonData, WeatherData.class);
+        WeatherDto weatherdto = gson.fromJson(jsonData, WeatherDto.class);
+        WeatherData weatherData = new WeatherData();
+        weatherData.setName(weatherdto.getLocation().getName());
+        weatherData.setCountry(weatherdto.getLocation().getCountry());
+        weatherData.setLast_updated(weatherdto.getCurrent().getLast_updated());
+        weatherData.setTemp_c(String.valueOf(weatherdto.getCurrent().getTemp_c()));
         weather_projectRepository.save(weatherData);
     }
 }

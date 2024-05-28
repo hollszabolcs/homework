@@ -9,11 +9,11 @@ import java.net.URI;
 
 @Service
 @RequiredArgsConstructor
-public class Weather_projectService {
+public class WeatherProjectService {
     private final RestTemplate restTemplate;
 
     public String getWeatherFromApi() {
-        final var apiUrl = URI.create("http://api.weatherapi.com/v1/current.json?key=ac57493674af4b0ea86144110242005&q=" + "London" + "&api=no");
+        final var apiUrl = URI.create("http://api.weatherapi.com/v1/current.json?key=ac57493674af4b0ea86144110242005&q=" + "Sopron" + "&api=no");
         return restTemplate.getForObject(apiUrl, String.class);
     }
 }
